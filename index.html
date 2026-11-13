@@ -870,7 +870,7 @@ footer {
 
             </div>
 
-            <button class="blow-button" id="blowButton"
+            <button type="button" class="blow-button" id="blowButton"
                     onclick="blowCandles()">
                 Blow the candles 💨
             </button>
@@ -996,6 +996,15 @@ footer {
 </div>
 
 
+<!-- BACKGROUND MUSIC: keep music.mp3 in the same folder as this HTML file -->
+<audio id="bgMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" class="music-button" onclick="toggleMusic()">
+    🎵 Play Music
+</button>
+
 <script>
 
 
@@ -1042,7 +1051,7 @@ function toggleMusic() {
 ===================================== */
 
 const birthdayTime =
-    new Date("2026-11-14T00:00:00+05:30").getTime();
+    new Date("2026-11-13T23:22:00+05:30").getTime();
 
 const lockScreen = document.getElementById("lockScreen");
 const mainWebsite = document.getElementById("mainWebsite");
@@ -1190,6 +1199,8 @@ function blowCandles() {
     const button = document.getElementById("blowButton");
     const wish = document.getElementById("cakeWish");
 
+    if (!candles.length || !button || !wish) return;
+
     // Blow out every candle
     candles.forEach((candle, index) => {
 
@@ -1278,15 +1289,6 @@ function revealOnScroll() {
 
 </script>
 
-
-<!-- BACKGROUND MUSIC: keep music.mp3 in the same folder as this HTML file -->
-<audio id="bgMusic" loop preload="auto">
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<button id="musicButton" class="music-button" onclick="toggleMusic()">
-    🎵 Play Music
-</button>
 
 </body>
 </html>
